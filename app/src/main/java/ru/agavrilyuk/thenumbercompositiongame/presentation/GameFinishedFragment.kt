@@ -4,15 +4,30 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.OnBackPressedDispatcher
 import androidx.fragment.app.Fragment
-import ru.agavrilyuk.thenumbercompositiongame.R
+import androidx.fragment.app.FragmentManager
 import ru.agavrilyuk.thenumbercompositiongame.databinding.FragmentGameFinishedBinding
-import java.lang.RuntimeException
+import ru.agavrilyuk.thenumbercompositiongame.domain.entity.GameResult
 
-class GameFinishedFragment: Fragment() {
+class GameFinishedFragment : Fragment() {
     private var _binding: FragmentGameFinishedBinding? = null
     private val binding: FragmentGameFinishedBinding
         get() = _binding ?: throw RuntimeException("FragmentGameFinishedBinding == null")
+
+    private lateinit var gameResult: GameResult
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        parsArgs()
+    }
+
+    private fun retryGame() {
+        requireActivity().supportFragmentManager.popBackStack(GameFragment.NAME, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+    }
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,10 +39,30 @@ class GameFinishedFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed(){
+                retryGame()
+            }
+        })
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun parsArgs() {
+        gameResult = requireArguments().getSerializable(KEY_GAME_RESULT) as GameResult
+    }
+
+    companion object {
+        private const val KEY_GAME_RESULT = "game_result"
+        fun newInstance(gameResult: GameResult): GameFinishedFragment {
+            return GameFinishedFragment().apply {
+                arguments = Bundle().apply {
+                    putSerializable(KEY_GAME_RESULT, gameResult)
+                }
+            }
+        }
     }
 }

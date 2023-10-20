@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "ru.agavrilyuk.thenumbercompositiongame"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "ru.agavrilyuk.thenumbercompositiongame"
