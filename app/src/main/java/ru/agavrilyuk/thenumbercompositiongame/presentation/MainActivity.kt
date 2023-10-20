@@ -1,7 +1,8 @@
-package ru.agavrilyuk.thenumbercompositiongame
+package ru.agavrilyuk.thenumbercompositiongame.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import ru.agavrilyuk.thenumbercompositiongame.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
