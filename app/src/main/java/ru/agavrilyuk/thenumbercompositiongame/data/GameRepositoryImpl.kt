@@ -19,7 +19,7 @@ object GameRepositoryImpl : GameRepository {
         options.add(rightAnswer)
         val from = max(rightAnswer - countOfOptions, MIN_ANSWER_VALUE)
         val to = min(maxSumValue - 1, rightAnswer + countOfOptions)
-        while (options.size < countOfOptions){
+        while (options.size < countOfOptions) {
             options.add(Random.nextInt(from, to))
         }
         return Question(sum, visibleNumber, options.toList())
@@ -27,7 +27,7 @@ object GameRepositoryImpl : GameRepository {
 
     override fun getGameSettings(level: Level): GameSettings {
         return when (level) {
-            Level.TEST ->{
+            Level.TEST -> {
                 GameSettings(
                     10,
                     3,
@@ -35,7 +35,8 @@ object GameRepositoryImpl : GameRepository {
                     8
                 )
             }
-            Level.EASY ->{
+
+            Level.EASY -> {
                 GameSettings(
                     10,
                     10,
@@ -43,7 +44,8 @@ object GameRepositoryImpl : GameRepository {
                     60
                 )
             }
-            Level.NORMAL ->{
+
+            Level.NORMAL -> {
                 GameSettings(
                     20,
                     20,
@@ -51,7 +53,8 @@ object GameRepositoryImpl : GameRepository {
                     40
                 )
             }
-            Level.HARD ->{
+
+            Level.HARD -> {
                 GameSettings(
                     30,
                     30,
