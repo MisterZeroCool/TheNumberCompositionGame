@@ -8,7 +8,6 @@ A game for children.You need to choose a number when added with which you will g
 
 ## Technologies
 - Clean Architecture
-- React Native
 - Android Navigation
 - dataBinding
 - viewBinding
