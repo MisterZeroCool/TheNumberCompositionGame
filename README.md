@@ -37,3 +37,9 @@ A game for children.You need to choose a number when added with which you will g
 <p align="center">
   <img src="https://i.ibb.co/g6Czk1V/loose2.png" alt="Preview"/>
 </p>
+
+## Project Startup
+
+To run this project, you will need the dependencies bellow:
+
+- Android SDK installed with a configured emulator
