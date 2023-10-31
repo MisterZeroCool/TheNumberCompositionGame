@@ -10,7 +10,6 @@ A game for children.You need to choose a number when added with which you will g
 - Clean Architecture
 - Android Navigation
 - dataBinding
-- viewBinding
 
 ## Screenshots 
 <h3 align="center"><strong>Welcom Fragment</strong></h3>
