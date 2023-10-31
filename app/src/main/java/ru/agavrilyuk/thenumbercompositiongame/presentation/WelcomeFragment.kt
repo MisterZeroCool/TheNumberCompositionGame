@@ -10,13 +10,13 @@ import ru.agavrilyuk.thenumbercompositiongame.R
 import ru.agavrilyuk.thenumbercompositiongame.databinding.FragmentWelcomeBinding
 
 class WelcomeFragment : Fragment() {
+
     private var _binding: FragmentWelcomeBinding? = null
     private val binding: FragmentWelcomeBinding
         get() = _binding ?: throw RuntimeException("FragmentWelcomeBinding == null")
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentWelcomeBinding.inflate(inflater, container, false)
@@ -30,7 +30,7 @@ class WelcomeFragment : Fragment() {
         }
     }
 
-    private fun launchChooseLevelFragment(){
+    private fun launchChooseLevelFragment() {
         findNavController().navigate(R.id.action_welcomeFragment2_to_chooseLevelFragment)
     }
 

@@ -11,13 +11,13 @@ import ru.agavrilyuk.thenumbercompositiongame.databinding.FragmentChooseLevelBin
 import ru.agavrilyuk.thenumbercompositiongame.domain.entity.Level
 
 class ChooseLevelFragment : Fragment() {
+
     private var _binding: FragmentChooseLevelBinding? = null
     private val binding: FragmentChooseLevelBinding
         get() = _binding ?: throw RuntimeException("FragmentChooseLevelBinding == null")
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentChooseLevelBinding.inflate(inflater, container, false)
@@ -44,9 +44,9 @@ class ChooseLevelFragment : Fragment() {
 
     private fun launchGameFragment(level: Level) {
         findNavController().navigate(
-            ChooseLevelFragmentDirections.actionChooseLevelFragmentToGameFragment(level))
+            ChooseLevelFragmentDirections.actionChooseLevelFragmentToGameFragment(level)
+        )
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
